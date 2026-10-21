@@ -1,0 +1,40 @@
+name: CI/CD Eme-JS              # nombre que aparece en la pestaña Actions
+
+on:
+  push:
+    branches: [main]            # cada push a main
+  pull_request:
+    branches: [main]            # Y cada PR hacia main (solo para validar)
+permissions:
+  contents: read                # Leer el código del repo
+  pages: write                  # Publicar en GitHub Pages
+  id-token: write               # Identificarse ante Pages (autenticación OIDC)
+
+concurrency:
+  group: pages                  # Si haces dos push seguidos, no despliega dos veces a la vez
+  cancel-in-progress: false
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+
+      - name: Comprobar sintaxis de app.js
+        run: node --check app.js
+
+  desplegar:                                 
+    needs:  validar     
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4
