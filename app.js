@@ -10,15 +10,15 @@ const loteIncidentes = [
     { id: 106, descripcion: "Accidente de tráfico múltiple en la A-4", gravedad: 5, resuelta: false },
     { id: 107, descripcion: "Rescate en ascensor bloqueado", gravedad: 2, resuelta: false }
 ];
-
-if (_DEBUGMODE) {
-    console.log(`Incidentes cargados: ${loteIncidentes.length}` )
+function debug(mensaje) {
+    if (_DEBUGMODE){
+    console.log(mensaje);
+    }
 }
+debug(`Incidentes cargados: ${loteIncidentes.length}`)
 for (let i = 0; i < loteIncidentes.length; i++){
     const {id, descripcion, gravedad, resuelta} = loteIncidentes[i];
-    if (_DEBUGMODE) {
-        console.log(`Procesando índice ${i+1}, id ${id}`); 
-    }
+    debug(`Procesando índice ${i+1}, id ${id}`);
         console.log(`
       === PARTE DE INCIDENTE ${id} ===
     Descripción: ${descripcion}
