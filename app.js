@@ -1,4 +1,4 @@
-const _DEBUGMODE = false;
+const _DEBUGMODE = true;
 
 
 const loteIncidentes = [
@@ -10,11 +10,19 @@ const loteIncidentes = [
     { id: 106, descripcion: "Accidente de tráfico múltiple en la A-4", gravedad: 5, resuelta: false },
     { id: 107, descripcion: "Rescate en ascensor bloqueado", gravedad: 2, resuelta: false }
 ];
-function debug(mensaje) {
-    if (_DEBUGMODE){
-    console.log(mensaje);
+
+
+const miLogger = {
+    info: (mensaje) => {
+        if (_DEBUGMODE) console.log(`[INFO] ${mensaje}`);
+    },
+    error: (mensaje) => {
+        // Los errores críticos se pueden reportar siempre o enviar a un servidor externo
+        console.error(`[ERROR CATASTRÓFICO] ${mensaje}`);
     }
-}
+}; 
+ miLogger.info(`Número de incidentes: ${loteIncidentes.length}`); 
+
 debug(`Incidentes cargados: ${loteIncidentes.length}`)
 for (let i = 0; i < loteIncidentes.length; i++){
     const {id, descripcion, gravedad, resuelta} = loteIncidentes[i];
