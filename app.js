@@ -1,3 +1,5 @@
+const _DEBUGMODE = true;
+
 
 const loteIncidentes = [
     { id: 101, descripcion: "Gato atrapado en un árbol", gravedad: 1, resuelta: false },
@@ -9,11 +11,13 @@ const loteIncidentes = [
     { id: 107, descripcion: "Rescate en ascensor bloqueado", gravedad: 2, resuelta: false }
 ];
 
-
+if (_DEBUGMODE) {
+    console.log(`[DEBUG] Incidentes cargados: ${loteIncidentes.length}` )
+}
 for (let i = 0; i < loteIncidentes.length; i++){
     const {id, descripcion, gravedad, resuelta} = loteIncidentes[i];
     console.log(`
-        PARTE DE INCIDENTE ${id}
+      === PARTE DE INCIDENTE ${id} ===
     Descripción: ${descripcion}
     Gravedad: ${gravedad}
     Resuelta: ${resuelta}
