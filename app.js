@@ -25,7 +25,7 @@ const miLogger = {
 
 for (let i = 0; i < loteIncidentes.length; i++){
     const {id, descripcion, gravedad, resuelta} = loteIncidentes[i];
-    info(`Procesando índice ${i+1}, id ${id}`);
+    miLogger.info(`Procesando índice ${i+1}, id ${id}`);
 
 if (gravedad >= 5 && resuelta == false){
         miLogger.error(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
