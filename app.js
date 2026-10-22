@@ -23,7 +23,6 @@ const miLogger = {
 }; 
  miLogger.info(`Número de incidentes: ${loteIncidentes.length}`); 
 
-debug(`Incidentes cargados: ${loteIncidentes.length}`)
 for (let i = 0; i < loteIncidentes.length; i++){
     const {id, descripcion, gravedad, resuelta} = loteIncidentes[i];
     debug(`Procesando índice ${i+1}, id ${id}`);
