@@ -12,10 +12,11 @@ const loteIncidentes = [
 ];
 
 if (_DEBUGMODE) {
-    console.log(`[DEBUG] Incidentes cargados: ${loteIncidentes.length}` )
+    console.log(`Incidentes cargados: ${loteIncidentes.length}` )
 }
 for (let i = 0; i < loteIncidentes.length; i++){
     const {id, descripcion, gravedad, resuelta} = loteIncidentes[i];
+if (_DEBUGMODE) console.log(`Procesando índice ${i}, id ${id}`);
     console.log(`
       === PARTE DE INCIDENTE ${id} ===
     Descripción: ${descripcion}
