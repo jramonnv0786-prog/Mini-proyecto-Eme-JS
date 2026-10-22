@@ -17,7 +17,7 @@ const miLogger = {
         if (_DEBUGMODE) console.log(`[INFO] ${mensaje}`);
     },
     error: (mensaje) => {
-        // Los errores críticos se pueden reportar siempre o enviar a un servidor externo
+
         console.error(`[ERROR CATASTRÓFICO] ${mensaje}`);
     }
 }; 
@@ -25,7 +25,7 @@ const miLogger = {
 
 for (let i = 0; i < loteIncidentes.length; i++){
     const {id, descripcion, gravedad, resuelta} = loteIncidentes[i];
-    debug(`Procesando índice ${i+1}, id ${id}`);
+    info(`Procesando índice ${i+1}, id ${id}`);
         console.log(`
       === PARTE DE INCIDENTE ${id} ===
     Descripción: ${descripcion}
