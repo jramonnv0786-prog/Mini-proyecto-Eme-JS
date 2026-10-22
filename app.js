@@ -1,4 +1,4 @@
-const _DEBUGMODE = true;
+const _DEBUGMODE = false;
 
 
 const loteIncidentes = [
