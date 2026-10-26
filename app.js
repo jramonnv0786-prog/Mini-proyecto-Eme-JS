@@ -1,8 +1,8 @@
 /**
  * 
- * @param {boolean} _DEBUGMODE - Esto sirve para activar o desactivar mensajes de depuracion y
- *                              asi evita crear o eliminar console.log que consumen memoria.
- * @param {int} loteambulancias - numero de ambulancias para solucionar incidencias.
+ * @param {boolean} _DEBUGMODE - El debugmode, tiene el objetivo de ser un interruptor que activamos o desactivamos
+ *                                para así que nos comunique los avisos de incidentes dentro del código.
+ * @param {int} loteambulancias - Número de ambulancias para solucionar incidencias.
  */
 
 const _DEBUGMODE = true;
@@ -12,7 +12,7 @@ let loteambulancias = 5;
 
 /**
  * 
- * @param {string[]} loteIncidentes - Array que muestra cada incidencia con su informacion correspondiente.
+ * @param {string[]} loteIncidentes - Array que muestra cada incidencia con su información correspondiente.
  */
 const loteIncidentes = [
     { id: 101, descripcion: "Gato atrapado en un árbol", gravedad: 1, resuelta: false },
@@ -27,7 +27,7 @@ const loteIncidentes = [
 
 /**
  * Logger con niveles de gravedad.
- *  @param {string} muestra - mensajes a mostrar (info, error y warning).
+ *  @param {string} muestra - Mensajes a mostrar (info, error y warning).
  */
 const muestra = {
     /**
@@ -62,7 +62,7 @@ const muestra = {
 
 /**
  * 
- * @param {String} muestra.info - Muestra numero de incidencias.
+ * @param {String} muestra.info - Muestra número de incidencias.
  * 
  */
 
@@ -87,7 +87,7 @@ for (let i = 0; i < loteIncidentes.length; i++) {
 
 
 
-    // Muestra si esta resuelta o no el incidente
+    // Muestra si está resuelto o no el incidente.
     if (resuelta === false) {
         //justo antes de decidir cuántas ambulancias enviar
         if (_DEBUGMODE) debugger; 
@@ -101,31 +101,31 @@ for (let i = 0; i < loteIncidentes.length; i++) {
         continue;
     }
 
-    //Muestra cada incidencia sin solucionar y cada una de sus caracteristicas 
+    //Muestra cada incidencia sin solucionar y cada una de sus características.
     muestra.info(`Procesando índice ${i + 1}, id ${id}`);
-    
+
     console.log(`
       === PARTE DE INCIDENTE ${id} ===
     Descripción: ${descripcion}
     Gravedad: ${gravedad}
     Resuelta: ${resuelta}
         `);
-/**
- * Gestiona el despacho de ambulancias para una incidencia no resuelta.
- *
- * Solo actúa si la incidencia sigue sin resolver. Según la gravedad:
- * Gravedad >= 5: se intentan enviar 2 ambulancias. Si solo queda 1,
- * se registra un error, se avisa de que solo se envía 1 y se
- * interrumpe el bucle (`break`).
- * Gravedad entre 1 y 4: se envía 1 ambulancia.
- * Gravedad <= 0: no se envía ninguna.
- *
- * @param {boolean} resuelta - Indica si la incidencia ya está resuelta.
- * @param {number} gravedad - Nivel de gravedad de la incidencia (>= 5 = grave).
- * @param {number} loteambulancias - Ambulancias disponibles. Se decrementa
- *                                   según las que se envíen.
- * @param {Console} muestra - Objeto de salida (`console`) para error, warn e info.
- */
+    /**
+     * Gestiona el despacho de ambulancias para una incidencia no resuelta.
+     *
+     * Solo actúa si la incidencia sigue sin resolver. Según la gravedad:
+     * Gravedad >= 5: se intentan enviar 2 ambulancias. Si solo queda 1,
+     * se registra un error, se avisa de que solo se envía 1 y se
+     * interrumpe el bucle (`break`).
+     * Gravedad entre 1 y 4: se envía 1 ambulancia.
+     * Gravedad <= 0: no se envía ninguna.
+     *
+     * @param {boolean} resuelta - Indica si la incidencia ya está resuelta.
+     * @param {number} gravedad - Nivel de gravedad de la incidencia (>= 5 = grave).
+     * @param {number} loteambulancias - Ambulancias disponibles. Se decrementa
+     *                                   según las que se envíen.
+     * @param {Console} muestra - Objeto de salida (`console`) para error, warn e info.
+     */
     if (resuelta === false) {
         if (gravedad >= 5) {
             if (loteambulancias === 1) {
