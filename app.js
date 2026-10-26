@@ -1,18 +1,21 @@
 /**
  * 
- * @param {boolean} _DEBUGMODE - El debugmode, tiene el objetivo de ser un interruptor que activamos o desactivamos
+ * @type {boolean} _DEBUGMODE - El debugmode, tiene el objetivo de ser un interruptor que activamos o desactivamos
  *                                para así que nos comunique los avisos de incidentes dentro del código.
- * @param {int} loteambulancias - Número de ambulancias para solucionar incidencias.
+ * 
  */
 
 const _DEBUGMODE = true;
-
+/**
+ * 
+ * @type {int} loteambulancias - Número de ambulancias para solucionar incidencias.
+ */
 let loteambulancias = 5;
 
 
 /**
  * 
- * @param {string[]} loteIncidentes - Array que muestra cada incidencia con su información correspondiente.
+ * @type {string[]} loteIncidentes - Array que muestra cada incidencia con su información correspondiente.
  */
 const loteIncidentes = [
     { id: 101, descripcion: "Gato atrapado en un árbol", gravedad: 1, resuelta: false },
@@ -26,8 +29,13 @@ const loteIncidentes = [
 
 
 /**
- * Logger con niveles de gravedad.
- *  @param {string} muestra - Mensajes a mostrar (info, error y warning).
+ * Logger con niveles de gravedad. Centraliza los mensajes por consola
+ * y respeta el modo depuración (`_DEBUGMODE`).
+ * @type {{
+ *   info: (mensaje: string) => void,
+ *   error: (mensaje: string) => void,
+ *   warn: (mensaje: string) => void
+ * }}
  */
 const muestra = {
     /**
@@ -70,10 +78,10 @@ muestra.info(`Número de incidentes: ${loteIncidentes.length}`);
 // Recorre cada incidencia del array.
 for (let i = 0; i < loteIncidentes.length; i++) {
     /**
-     * @param {int} id - id de la incidencia.
-     * @param {String} descripcion - descripcion de la incidencia.
-     * @param {int} gravedad - gravedad de la incidencia.
-     * @param {boolean} resuelta - booleano que señali si esta o no resuelta.
+     * @type {int} id - id de la incidencia.
+     * @type {String} descripcion - descripcion de la incidencia.
+     * @type {int} gravedad - gravedad de la incidencia.
+     * @type {boolean} resuelta - booleano que señali si esta o no resuelta.
      */
     const { id, descripcion, gravedad, resuelta } = loteIncidentes[i];
     //  ver los datos de cada iteración
