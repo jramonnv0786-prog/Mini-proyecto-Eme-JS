@@ -145,7 +145,7 @@ for (let i = 0; i < loteIncidentes.length; i++) {
             //Rama de gravedad leve/media
             debugger; 
             loteambulancias -= 1;
-            console.info(`Se ha enviado 1 ambulancia a la incidencia número: ${id}`);
+            muestra.info(`Se ha enviado 1 ambulancia a la incidencia número: ${id}`);
         }
     }
 }
