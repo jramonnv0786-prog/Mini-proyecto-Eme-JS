@@ -76,7 +76,8 @@ for (let i = 0; i < loteIncidentes.length; i++) {
      * @param {boolean} resuelta - booleano que señali si esta o no resuelta.
      */
     const { id, descripcion, gravedad, resuelta } = loteIncidentes[i];
-
+    //  ver los datos de cada iteración
+    if (_DEBUGMODE) debugger; 
     // Muestra error en caso de no haber ambulancias.
     if (loteambulancias <= 0) {
         muestra.error('No hay ambulancias disponibles.');
@@ -88,6 +89,8 @@ for (let i = 0; i < loteIncidentes.length; i++) {
 
     // Muestra si esta resuelta o no el incidente
     if (resuelta === false) {
+        //justo antes de decidir cuántas ambulancias enviar
+        if (_DEBUGMODE) debugger; 
         //Muestra cada incidencia sin solucionar
         muestra.error(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
 
@@ -130,12 +133,16 @@ for (let i = 0; i < loteIncidentes.length; i++) {
                 muestra.warn('Se han enviado 1 ambulancia.')
                 break;
             } else {
+                // solo se alcanza si entra en la rama grave
+                debugger; 
                 loteambulancias -= 2;
                 muestra.info(`Se han enviado 2 ambulancias a la incidencia número: ${id}`);
             }
 
 
         } else if (gravedad < 5 && gravedad > 0) {
+            //Rama de gravedad leve/media
+            debugger; 
             loteambulancias -= 1;
             console.info(`Se ha enviado 1 ambulancia a la incidencia número: ${id}`);
         }
