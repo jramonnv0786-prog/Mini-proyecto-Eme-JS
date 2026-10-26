@@ -30,11 +30,18 @@ y comprobando que el contador bajaba de 4 a 3 en vez de a 2.
 # EXPERIENCIA DRIVER & NAVIGATOR.
 
 **JOSE RAMÓN NEIRA VEGA**
+
+
+
 Hemos tenido formas distintas de comunicarnos a lo largo del trabajo. 
 No obstante, hemos sabido llevarlo hablando mucho y expresándonos de manera que uno pudiese entenderse con el otro.
 **Navigator** : Como navigator de Manuel, en su momento detecté fallos a la hora de comentar código y de hacer el tipo de dato (variables) más descriptivo.
 
+
 **MANUEL**
+
+
+
 Distintos puntos de vista a la hora de organizar el código, pero hemos sabido adecuarnos al orden de cada uno.
 **Navigator** : Como navigator de Jose Ramon, he ido por delante para indicar como podemos estructurar el código y se vea limpio.
 
