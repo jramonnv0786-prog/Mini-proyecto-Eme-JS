@@ -24,14 +24,34 @@ const loteIncidentes = [
     { id: 107, descripcion: "Rescate en ascensor bloqueado", gravedad: 2, resuelta: false }
 ];
 
-const miLogger = {
+
+/**
+ * Logger con niveles de gravedad.
+ *  @param {string} muestra - mensajes a mostrar (info, error y warning).
+ */
+const muestra = {
+     /**
+     * Muestra un mensaje informativo (solo en modo debug).
+     * @param {string} mensaje - Texto a mostrar.
+     * @returns {void}
+     */
     info: (mensaje) => {
         if (_DEBUGMODE) console.info(`[INFO] ${mensaje}`);
     },
+    /**
+     * Muestra un error crítico, siempre visible.
+     * @param {string} mensaje - Texto a mostrar.
+     * @returns {void}
+     */
     error: (mensaje) => {
 
         console.error(`[ERROR] ${mensaje}`);
     },
+    /**
+     * Muestra una advertencia (solo en modo debug).
+     * @param {string} mensaje - Texto a mostrar.
+     * @returns {void}
+     */
     warn: (mensaje) => {
         if (_DEBUGMODE) console.warn(`[WARNING!] ${mensaje}`);
     }
@@ -39,13 +59,16 @@ const miLogger = {
 
 
 };
-
-miLogger.info(`Número de incidentes: ${loteIncidentes.length}`);
+/**
+ * 
+ * 
+ */
+muestra.info(`Número de incidentes: ${loteIncidentes.length}`);
 
 for (let i = 0; i < loteIncidentes.length; i++) {
     const { id, descripcion, gravedad, resuelta } = loteIncidentes[i];
     if (loteambulancias <= 0) {
-        miLogger.error('No hay ambulancias disponibles.');
+        muestra.error('No hay ambulancias disponibles.');
         break;
     }
 
@@ -56,31 +79,31 @@ for (let i = 0; i < loteIncidentes.length; i++) {
     if (resuelta === false) {
         switch (gravedad) {
 
-            case 1: miLogger.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
+            case 1: muestra.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
                 break;
 
-            case 2: miLogger.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
+            case 2: muestra.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
                 break;
 
-            case 3: miLogger.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
+            case 3: muestra.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
                 break;
 
-            case 4: miLogger.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
+            case 4: muestra.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
                 break;
 
-            case 5: miLogger.error(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
+            case 5: muestra.error(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
                 break;
 
-            default: miLogger.warn(`Este incidente no está en el sistema.`);
+            default: muestra.warn(`Este incidente no está en el sistema.`);
         }
 
     } else if (resuelta === true) {
-        miLogger.info(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad está solucionada`);
+        muestra.info(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad está solucionada`);
         continue;
     }
 
 
-    miLogger.info(`Procesando índice ${i + 1}, id ${id}`);
+    muestra.info(`Procesando índice ${i + 1}, id ${id}`);
 
     console.log(`
       === PARTE DE INCIDENTE ${id} ===
@@ -92,12 +115,12 @@ for (let i = 0; i < loteIncidentes.length; i++) {
     if (resuelta === false) {
         if (gravedad >= 5) {
             if (loteambulancias === 1) {
-                miLogger.error('No hay suficientes ambulancias disponibles.');
-                miLogger.warn('Se han enviado 1 ambulancia.')
+                muestra.error('No hay suficientes ambulancias disponibles.');
+                muestra.warn('Se han enviado 1 ambulancia.')
                 break;
             } else {
                 loteambulancias -= 2;
-                miLogger.info(`Se han enviado 2 ambulancias a la incidencia número: ${id}`);
+                muestra.info(`Se han enviado 2 ambulancias a la incidencia número: ${id}`);
             }
 
 
