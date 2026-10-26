@@ -1,7 +1,19 @@
+/**
+ * 
+ * @param {boolean} _DEBUGMODE - Esto sirve para activar o desactivar mensajes de depuracion y
+ *                              asi evita crear o eliminar console.log que consumen memoria.
+ * @param {int} loteambulancias - numero de ambulancias para solucionar incidencias.
+ */
+
 const _DEBUGMODE = true;
 
 let loteambulancias = 3;
 
+
+/**
+ * 
+ * @param {string[]} loteIncidentes - Array que muestra cada incidencia con su informacion correspondiente.
+ */
 const loteIncidentes = [
     { id: 101, descripcion: "Gato atrapado en un árbol", gravedad: 1, resuelta: false },
     { id: 102, descripcion: "Falsa alarma de humo en local", gravedad: 2, resuelta: true },
