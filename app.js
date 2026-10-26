@@ -28,7 +28,7 @@ for (let i = 0; i < loteIncidentes.length; i++){
     miLogger.info(`Procesando índice ${i+1}, id ${id}`);
 
 if (resuelta === false){
-        switch ($gravedad) {
+        switch (gravedad) {
 
             case 1: miLogger.error('La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar');
             break;
