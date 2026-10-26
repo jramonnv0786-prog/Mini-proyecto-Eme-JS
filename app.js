@@ -128,7 +128,7 @@ for (let i = 0; i < loteIncidentes.length; i++) {
      */
     if (resuelta === false) {
         if (gravedad >= 5) {
-            if (loteambulancias <= 1) {
+            if (loteambulancias === 1) {
                 muestra.error('No hay suficientes ambulancias disponibles.');
                 muestra.warn('Se han enviado 1 ambulancia.');
                 loteambulancias -= 1;
