@@ -19,7 +19,11 @@ const miLogger = {
     error: (mensaje) => {
 
         console.error(`[ERROR CATASTRÓFICO] ${mensaje}`);
+    }, 
+    warn:(mensaje) => {
+        if (_DEBUGMODE) console.log(`[WARNING!] ${mensaje}`);
     }
+    
 
 
 }; 
@@ -39,22 +43,22 @@ for (let i = 0; i < loteIncidentes.length; i++){
     if (resuelta === false){
             switch (gravedad) {
 
-                case 1: miLogger.error(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
+                case 1: miLogger.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
                 break;
 
-                case 2: miLogger.error(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
+                case 2: miLogger.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
                 break;
 
-                case 3: miLogger.error(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
+                case 3: miLogger.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
                 break;
 
-                case 4: miLogger.error(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
+                case 4: miLogger.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
                 break;
 
-                case 5: miLogger.error(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
+                case 5: miLogger.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
                 break;
 
-                default: miLogger.error(`Este incidente no está en el sistema.`);
+                default: miLogger.warn(`Este incidente no está en el sistema.`);
             }
     } else if (resuelta === true) {
 
