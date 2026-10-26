@@ -30,11 +30,11 @@ const loteIncidentes = [
  *  @param {string} muestra - mensajes a mostrar (info, error y warning).
  */
 const muestra = {
-     /**
-     * Muestra un mensaje informativo (solo en modo debug).
-     * @param {string} mensaje - Texto a mostrar.
-     * @returns {void}
-     */
+    /**
+    * Muestra un mensaje informativo (solo en modo debug).
+    * @param {string} mensaje - Texto a mostrar.
+    * @returns {void}
+    */
     info: (mensaje) => {
         if (_DEBUGMODE) console.info(`[INFO] ${mensaje}`);
     },
@@ -59,14 +59,25 @@ const muestra = {
 
 
 };
+
 /**
  * 
+ * @param {String} muestra.info - Muestra numero de incidencias.
  * 
  */
-muestra.info(`Número de incidentes: ${loteIncidentes.length}`);
 
+muestra.info(`Número de incidentes: ${loteIncidentes.length}`);
+// Recorre cada incidencia del array.
 for (let i = 0; i < loteIncidentes.length; i++) {
+    /**
+     * @param {int} id - id de la incidencia.
+     * @param {String} descripcion - descripcion de la incidencia.
+     * @param {int} gravedad - gravedad de la incidencia.
+     * @param {boolean} resuelta - booleano que señali si esta o no resuelta.
+     */
     const { id, descripcion, gravedad, resuelta } = loteIncidentes[i];
+
+    // Muestra error en caso de no haber ambulancias.
     if (loteambulancias <= 0) {
         muestra.error('No hay ambulancias disponibles.');
         break;
@@ -75,29 +86,14 @@ for (let i = 0; i < loteIncidentes.length; i++) {
 
 
 
-
+    // Muestra si esta resuelta o no el incidente
     if (resuelta === false) {
-        switch (gravedad) {
+        //Muestra cada incidencia sin solucionar
+        muestra.error(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
 
-            case 1: muestra.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
-                break;
-
-            case 2: muestra.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
-                break;
-
-            case 3: muestra.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
-                break;
-
-            case 4: muestra.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
-                break;
-
-            case 5: muestra.error(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
-                break;
-
-            default: muestra.warn(`Este incidente no está en el sistema.`);
-        }
 
     } else if (resuelta === true) {
+        // Muestra las que estan resueltas
         muestra.info(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad está solucionada`);
         continue;
     }
