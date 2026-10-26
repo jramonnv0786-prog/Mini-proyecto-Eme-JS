@@ -23,3 +23,18 @@ y comprobando que el contador bajaba de 4 a 3 en vez de a 2.
 
 4. **Debugger** Pausa justo antes de restar 1 ambulancia, solo con las incidencias a resolver de gravedad 1 a 4.
 <img width="1191" height="452" alt="image" src="https://github.com/user-attachments/assets/15f5e491-ac11-4ca9-bbb2-e8534174ff51" />
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+# EXPERIENCIA DRIVER & NAVIGATOR.
+
+**JOSE RAMÓN NEIRA VEGA**
+Hemos tenido formas distintas de comunicarnos a lo largo del trabajo. 
+No obstante, hemos sabido llevarlo hablando mucho y expresándonos de manera que uno pudiese entenderse con el otro.
+**Navigator** : Como navigator de Manuel, en su momento detecté fallos a la hora de comentar código y de hacer el tipo de dato (variables) más descriptivo.
+
+**MANUEL**
+Distintos puntos de vista a la hora de organizar el código, pero hemos sabido adecuarnos al orden de cada uno.
+**Navigator** : Como navigator de Jose Ramon, he ido por delante para indicar como podemos estructurar el código y se vea limpio.
+
