@@ -55,7 +55,7 @@ for (let i = 0; i < loteIncidentes.length; i++){
                 case 4: miLogger.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
                 break;
 
-                case 5: miLogger.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
+                case 5: miLogger.error(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
                 break;
 
                 default: miLogger.warn(`Este incidente no está en el sistema.`);
