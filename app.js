@@ -27,9 +27,20 @@ for (let i = 0; i < loteIncidentes.length; i++){
     const {id, descripcion, gravedad, resuelta} = loteIncidentes[i];
     miLogger.info(`Procesando índice ${i+1}, id ${id}`);
 
-if (gravedad >= 5 && resuelta == false){
-        miLogger.error(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
-    }
+if (resuelta == false){
+        switch ($gravedad) {
+            case 1: miLogger.error('La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar');
+            break;
+            case 2: miLogger.error('La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar');
+            break;
+            case 3: miLogger.error('La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar');
+            break;
+            case 4: miLogger.error('La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar');
+            break;
+            case 5: miLogger.error('La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar');
+            break;
+        }
+    } 
 
         console.log(`
       === PARTE DE INCIDENTE ${id} ===
