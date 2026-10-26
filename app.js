@@ -130,7 +130,8 @@ for (let i = 0; i < loteIncidentes.length; i++) {
         if (gravedad >= 5) {
             if (loteambulancias === 1) {
                 muestra.error('No hay suficientes ambulancias disponibles.');
-                muestra.warn('Se han enviado 1 ambulancia.')
+                muestra.warn('Se han enviado 1 ambulancia.');
+                loteambulancias -= 1;
                 break;
             } else {
                 // solo se alcanza si entra en la rama grave
