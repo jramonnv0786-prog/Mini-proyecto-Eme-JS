@@ -133,7 +133,7 @@ for (let i = 0; i < loteIncidentes.length; i++) {
                 muestra.warn('Se han enviado 1 ambulancia.');
                 loteambulancias -= 1;
                 break;
-            } else {
+            } else if (loteambulancias > 1) {
                 // solo se alcanza si entra en la rama grave
                 debugger; 
                 loteambulancias -= 2;
