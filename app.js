@@ -1,6 +1,6 @@
 const _DEBUGMODE = true;
 
-let loteambulancias = 3;
+let loteambulancias = 0;
 
 const loteIncidentes = [
     { id: 101, descripcion: "Gato atrapado en un árbol", gravedad: 1, resuelta: false },
@@ -29,6 +29,7 @@ const miLogger = {
 for (let i = 0; i < loteIncidentes.length; i++){
     const {id, descripcion, gravedad, resuelta} = loteIncidentes[i];
     miLogger.info(`Procesando índice ${i+1}, id ${id}`);
+
     if (loteambulancias <= 0) {
         miLogger.error('No hay ambulancias disponibles.'); 
         break;
