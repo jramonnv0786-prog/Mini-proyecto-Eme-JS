@@ -21,7 +21,7 @@ const miLogger = {
         console.error(`[ERROR CATASTRÓFICO] ${mensaje}`);
     }, 
     warn:(mensaje) => {
-        if (_DEBUGMODE) console.log(`[WARNING!] ${mensaje}`);
+        if (_DEBUGMODE) console.warn(`[WARNING!] ${mensaje}`);
     }
     
 
