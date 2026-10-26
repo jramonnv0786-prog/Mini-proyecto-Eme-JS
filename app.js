@@ -30,11 +30,12 @@ for (let i = 0; i < loteIncidentes.length; i++){
     const {id, descripcion, gravedad, resuelta} = loteIncidentes[i];
     if (loteambulancias <= 0) {
         miLogger.error('No hay ambulancias disponibles.'); 
-        break;
-
+        break; }
+        
     miLogger.info(`Procesando índice ${i+1}, id ${id}`);
     
-    } 
+     
+    
     if (resuelta === false){
             switch (gravedad) {
 
