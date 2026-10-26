@@ -32,7 +32,7 @@ for (let i = 0; i < loteIncidentes.length; i++){
         miLogger.error('No hay ambulancias disponibles.'); 
         break; }
         
-    miLogger.info(`Procesando índice ${i+1}, id ${id}`);
+   
     
      
     
@@ -62,6 +62,8 @@ for (let i = 0; i < loteIncidentes.length; i++){
         continue;
     } 
 
+    miLogger.info(`Procesando índice ${i+1}, id ${id}`);
+    
     console.log(`
       === PARTE DE INCIDENTE ${id} ===
     Descripción: ${descripcion}
