@@ -1,5 +1,6 @@
 const _DEBUGMODE = true;
 
+let loteambulancias = 3;
 
 const loteIncidentes = [
     { id: 101, descripcion: "Gato atrapado en un árbol", gravedad: 1, resuelta: false },
@@ -11,7 +12,6 @@ const loteIncidentes = [
     { id: 107, descripcion: "Rescate en ascensor bloqueado", gravedad: 2, resuelta: false }
 ];
 
-
 const miLogger = {
     info: (mensaje) => {
         if (_DEBUGMODE) console.log(`[INFO] ${mensaje}`);
@@ -20,40 +20,46 @@ const miLogger = {
 
         console.error(`[ERROR CATASTRÓFICO] ${mensaje}`);
     }
+
+
 }; 
+
  miLogger.info(`Número de incidentes: ${loteIncidentes.length}`); 
 
 for (let i = 0; i < loteIncidentes.length; i++){
     const {id, descripcion, gravedad, resuelta} = loteIncidentes[i];
     miLogger.info(`Procesando índice ${i+1}, id ${id}`);
+    if (loteambulancias <= 0) {
+        miLogger.error('No hay ambulancias disponibles.'); 
+        break;
+    } 
+    if (resuelta === false){
+            switch (gravedad) {
 
-if (resuelta === false){
-        switch (gravedad) {
+                case 1: miLogger.error('La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar');
+                break;
 
-            case 1: miLogger.error('La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar');
-            break;
+                case 2: miLogger.error('La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar');
+                break;
 
-            case 2: miLogger.error('La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar');
-            break;
+                case 3: miLogger.error('La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar');
+                break;
 
-            case 3: miLogger.error('La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar');
-            break;
+                case 4: miLogger.error('La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar');
+                break;
 
-            case 4: miLogger.error('La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar');
-            break;
+                case 5: miLogger.error('La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar');
+                break;
 
-            case 5: miLogger.error('La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar');
-            break;
+                default: miLogger.error('Este incidente no está en el sistema.');
+            }
+    } else if (resuelta === true) {
 
-            default: miLogger.error('Este incidente no está en el sistema.');
-        }
-} else if (resuelta === true) {
+        miLogger.info('La incidencia: ${id}, tiene nivel ${gravedad} de gravedad está solucionada');
+        continue;
+    } 
 
-    miLogger.info('La incidencia: ${id}, tiene nivel ${gravedad} de gravedad está solucionada');
-    continue;
-} 
-
-        console.log(`
+    console.log(`
       === PARTE DE INCIDENTE ${id} ===
     Descripción: ${descripcion}
     Gravedad: ${gravedad}
