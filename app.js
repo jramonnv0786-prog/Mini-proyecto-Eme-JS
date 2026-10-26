@@ -7,7 +7,7 @@
 
 const _DEBUGMODE = true;
 
-let loteambulancias = 3;
+let loteambulancias = 5;
 
 
 /**
@@ -26,65 +26,84 @@ const loteIncidentes = [
 
 const miLogger = {
     info: (mensaje) => {
-        if (_DEBUGMODE) console.log(`[INFO] ${mensaje}`);
+        if (_DEBUGMODE) console.info(`[INFO] ${mensaje}`);
     },
     error: (mensaje) => {
 
-        console.error(`[ERROR CATASTRÓFICO] ${mensaje}`);
-    }, 
-    warn:(mensaje) => {
+        console.error(`[ERROR] ${mensaje}`);
+    },
+    warn: (mensaje) => {
         if (_DEBUGMODE) console.warn(`[WARNING!] ${mensaje}`);
     }
-    
 
 
-}; 
 
- miLogger.info(`Número de incidentes: ${loteIncidentes.length}`); 
+};
 
-for (let i = 0; i < loteIncidentes.length; i++){
-    const {id, descripcion, gravedad, resuelta} = loteIncidentes[i];
+miLogger.info(`Número de incidentes: ${loteIncidentes.length}`);
+
+for (let i = 0; i < loteIncidentes.length; i++) {
+    const { id, descripcion, gravedad, resuelta } = loteIncidentes[i];
     if (loteambulancias <= 0) {
-        miLogger.error('No hay ambulancias disponibles.'); 
-        break; }
-        
-   
-    
-     
-    
-    if (resuelta === false){
-            switch (gravedad) {
+        miLogger.error('No hay ambulancias disponibles.');
+        break;
+    }
 
-                case 1: miLogger.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
+
+
+
+
+    if (resuelta === false) {
+        switch (gravedad) {
+
+            case 1: miLogger.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
                 break;
 
-                case 2: miLogger.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
+            case 2: miLogger.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
                 break;
 
-                case 3: miLogger.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
+            case 3: miLogger.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
                 break;
 
-                case 4: miLogger.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
+            case 4: miLogger.warn(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
                 break;
 
-                case 5: miLogger.error(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
+            case 5: miLogger.error(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad sin solucionar`);
                 break;
 
-                default: miLogger.warn(`Este incidente no está en el sistema.`);
-            }
+            default: miLogger.warn(`Este incidente no está en el sistema.`);
+        }
+
     } else if (resuelta === true) {
-
         miLogger.info(`La incidencia: ${id}, tiene nivel ${gravedad} de gravedad está solucionada`);
         continue;
-    } 
+    }
 
-    miLogger.info(`Procesando índice ${i+1}, id ${id}`);
-    
+
+    miLogger.info(`Procesando índice ${i + 1}, id ${id}`);
+
     console.log(`
       === PARTE DE INCIDENTE ${id} ===
     Descripción: ${descripcion}
     Gravedad: ${gravedad}
     Resuelta: ${resuelta}
-        `)
+        `);
 
+    if (resuelta === false) {
+        if (gravedad >= 5) {
+            if (loteambulancias === 1) {
+                miLogger.error('No hay suficientes ambulancias disponibles.');
+                miLogger.warn('Se han enviado 1 ambulancia.')
+                break;
+            } else {
+                loteambulancias -= 2;
+                miLogger.info(`Se han enviado 2 ambulancias a la incidencia número: ${id}`);
+            }
+
+
+        } else if (gravedad < 5 && gravedad > 0) {
+            loteambulancias -= 1;
+            console.info(`Se ha enviado 1 ambulancia a la incidencia número: ${id}`);
+        }
+    }
 }
